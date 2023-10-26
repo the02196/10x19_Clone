@@ -1,6 +1,100 @@
+@import "_mixins";
+@import "_variables";
+@import "_reset";
+@import "_extend";
+@import url("https://fonts.googleapis.com/css2?family=Unica+One&display=swap");
+
 body {
-  background: peru;
-  a {
-    color: blue;
+  background-color: $bg;
+  font-family: "Unica One", cursive;
+}
+main {
+  display: grid;
+  grid-template-rows: 1fr 8.5fr 1fr;
+  grid-template-columns: 1fr 1.55fr 1fr;
+  gap: 1px;
+  height: 100vh;
+  .grid {
+    background-color: white;
+  }
+}
+.grid:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 3.5vw;
+  }
+}
+.grid:nth-child(3),
+.grid:nth-child(8) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: $bg;
+}
+
+.scrolling-text {
+  grid-column-start: 2;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.grid:nth-child(5) {
+  background-image: url(/cosmos.avif);
+  background-size: 100%;
+}
+.grid-menu {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1px;
+}
+.grid-menu__inside {
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    color: $bg;
+    transition: all 0.2s linear;
+    &:hover {
+      background-color: $bg;
+      color: white;
+    }
+  }
+}
+
+span {
+  background-color: white;
+}
+
+.scrolling-text {
+  grid-column-start: 2;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 25px;
+  background-color: white;
+  span {
+    animation: scrollText 20s infinite;
+  }
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(-1000px)
+  }
+  50% {
+    transform: translateX(0px)
+  }
+  100% {
+    transform: translateX(-1000px);
   }
 }
